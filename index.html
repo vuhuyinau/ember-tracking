@@ -27,13 +27,13 @@ a { color: var(--blue); }
 b, strong { font-weight: 700; }
 
 /* top bar */
-.top { background: #fff; border-bottom: 1px solid var(--line); }
+.top { background: var(--navy); border-bottom: 1px solid #24467A; }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 12px; padding-bottom: 12px; }
 .top img { height: 42px; width: auto; }
 .top nav { display: flex; gap: 20px; font-size: 15px; font-weight: 600; }
-.top nav a { color: var(--soft); text-decoration: none; }
-.top nav a:hover { color: var(--blue); }
-.top nav a.v { color: var(--ember-d); }
+.top nav a { color: #C5D3E0; text-decoration: none; }
+.top nav a:hover { color: #fff; }
+.top nav a.v { color: var(--ember); }
 
 /* hero */
 .hero { background: var(--navy); color: #fff; padding: 52px 0 64px; }
@@ -152,7 +152,7 @@ footer b { color: #fff; }
 
 <header class="top">
   <div class="wrap">
-    <img src="img/vu_logo.png" alt="Victoria University, Melbourne Australia">
+    <img src="img/vu_logo_white.svg" alt="Victoria University, Melbourne Australia">
     <nav aria-label="Sections">
       <a href="#ai">Inside the AI</a>
       <a href="#findings">Findings</a>
@@ -168,7 +168,7 @@ footer b { color: #fff; }
     <h1>Embers from powerline faults can start deadly bushfires.<span class="hl">So I trained an AI to catch them.</span></h1>
     <p class="sub">You’ve seen the poster. Here’s the full story: both videos, what the AI found, and what it means for keeping powerlines from starting fires. <b>If it’s worth your time, there’s a People’s Choice vote at the end.</b></p>
 
-    <div class="vlabel"><h2>1 · Watch it step by step</h2><span>1 min 30 s · partly slowed down</span></div>
+    <div class="vlabel"><h2>1 · Watch it step by step</h2><span>1 min · partly slowed down</span></div>
     <div class="player" id="watch">
       <video src="videos/step_by_step.mp4" poster="img/step_poster.jpg" controls muted playsinline preload="metadata" aria-label="Step-by-step video: original footage, the AI's view, each ember outlined, then each ember tracked"></video>
     </div>
@@ -252,7 +252,8 @@ footer b { color: #fff; }
     <h2>Faster faults shed embers faster</h2>
     <div class="cmp">
       <div>
-        <h3>A branch <span class="tb">touching one wire</span> vs a branch <span class="to">across two wires</span></h3>
+        <h3>A branch <span class="tb">touching one live wire</span> vs a branch <span class="to">across two live wires</span></h3>
+        <p class="body" style="margin-bottom:6px"><span class="tb">Touching = phase to earth:</span> current flows from one live wire (12.7 kV) through the branch to earth. <span class="to">Across = phase to phase:</span> the branch bridges two live wires on different phases (22 kV).</p>
         <div class="grp"><p class="gt">How long the fault lasts</p>
           <div class="row"><span class="k cb">Touching</span><div class="bar a" style="width:100%">57 s</div></div>
           <div class="row"><span class="k co">Across</span><div class="bar b" style="width:28%">16 s</div></div></div>
@@ -260,7 +261,7 @@ footer b { color: #fff; }
           <div class="row"><span class="k cb">Touching</span><div class="bar a" style="width:45%">25.7</div></div>
           <div class="row"><span class="k co">Across</span><div class="bar b" style="width:100%">56.5</div></div></div>
       </div>
-      <p class="takeaway">A branch <span class="to">across two wires</span> burns out in about a quarter of the time but sheds embers about <b>twice as fast</b>. Of all the test conditions, the starting current was most closely linked to how fast embers came out.</p>
+      <p class="takeaway">A branch <span class="to">across two wires</span> (phase to phase) burns out in about a quarter of the time but sheds embers about <b>twice as fast</b>. Of all the test conditions, the starting current was most closely linked to how fast embers came out.</p>
       <div>
         <h3>Tests that <span class="to">started a fire</span> (86) vs tests that <span class="tg">didn’t</span> (7)</h3>
         <div class="grp"><p class="gt">Embers per test</p>
@@ -287,7 +288,7 @@ footer b { color: #fff; }
     <div class="take">
       <p class="h">So protection needs to be <span>fast</span>, not just sensitive.</p>
       <ul>
-        <li><b>Embers released = ember rate × time to trip.</b> Cut the time and you cut the embers.</li>
+        <li><b>Embers shed before the trip ≈ ember rate × time to trip.</b> Trip sooner and you cut those; the ones already shed can’t be taken back.</li>
         <li>In a typical test the ember rate is already high within <b>10–15 seconds</b>, and late tripping can’t take embers back.</li>
         <li>For faster faults, the same delay lets out more embers, so speed matters as much as catching small currents.</li>
         <li><b>Delivered:</b> a working AI pipeline in MATLAB, the first per-ember dataset for powerline faults, and comparisons by tree species, fault type and fire outcome.</li>
