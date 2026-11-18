@@ -67,12 +67,16 @@ section.alt .takeaway { background: var(--paper); }
 /* comparison bars */
 .cmp { display: grid; gap: 22px; margin-top: 28px; }
 .cmp h3 { margin-bottom: 10px; }
-.row { display: grid; grid-template-columns: 190px 1fr; gap: 14px; align-items: center; margin-bottom: 8px; }
-.row .k { font-size: 15px; color: var(--soft); text-align: right; }
+.row { display: grid; grid-template-columns: 120px 1fr; gap: 14px; align-items: center; margin-bottom: 8px; }
+.row .k { font-size: 15px; font-weight: 700; text-align: right; }
+.grp { margin-top: 14px; }
+.gt { font-size: 14px; font-weight: 700; letter-spacing: 0.5px; color: var(--mut); margin-bottom: 8px; text-transform: uppercase; }
+.k.cb { color: #0870AE; } .k.co { color: #D35A22; } .k.cg { color: #6E8399; }
+.tb { color: #0870AE; font-weight: 700; } .to { color: #D35A22; font-weight: 700; } .tg { color: #6E8399; font-weight: 700; }
 .bar { height: 34px; border-radius: 6px; display: flex; align-items: center; padding: 0 12px; font-weight: 800; font-size: 15px; color: #fff; white-space: nowrap; min-width: 64px; }
 .bar.a { background: var(--vublue); }
-.bar.b { background: var(--ember); color: var(--navy); }
-.bar.g { background: #9AAFC3; }
+.bar.b { background: #D35A22; color: #fff; }
+.bar.g { background: #6E8399; }
 
 /* stats */
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 26px; }
@@ -134,6 +138,7 @@ footer a { color: var(--sky); }
 footer b { color: #fff; }
 
 @media (max-width: 820px) {
+  .row .k { text-align: left; }
   .top nav { display: none; }
   .two, .about { grid-template-columns: 1fr; }
   .take, .vote { padding: 28px 22px; }
@@ -186,18 +191,20 @@ footer b { color: #fff; }
   <div class="wrap">
     <p class="eyebrow">INSIDE THE AI</p>
     <h2>How it tells an ember from a flame</h2>
-    <p class="lead">Embers are a few pixels wide, last a fraction of a second, and fly past a bright flame of the same colour. A simple “find the bright spots” rule fails. So I hand-labelled <b>3,755 embers in 445 frames</b> (about 13 hours) and trained a U-Net, a neural network that labels every pixel.</p>
+    <p class="lead">Embers are a few pixels wide, last a fraction of a second, and fly past a bright flame of the same colour. A simple “find the bright spots” rule fails. So I hand-labelled <b>3,755 embers in 445 frames</b> and trained a U-Net, a neural network that labels every pixel.</p>
     <figure>
       <img src="img/ai_inputs.png" alt="The AI's inputs: the colour frame, what got brighter than half a second before, what got brighter than half a second after, and the hand-labelled embers" loading="lazy">
       <figcaption>The trick: besides the colour image, the AI also sees what got brighter compared with half a second <b>before</b> and <b>after</b>. Moving embers light up; the still background and the steady flame cancel out.</figcaption>
     </figure>
     <div class="cmp">
       <div>
-        <h3>Tested on 15 videos it had never seen</h3>
-        <div class="row"><span class="k">AI: embers found</span><div class="bar a" style="width:82%">82%</div></div>
-        <div class="row"><span class="k">Hand-tuned: embers found</span><div class="bar g" style="width:35%">35%</div></div>
-        <div class="row"><span class="k">AI: overall score (F1)</span><div class="bar a" style="width:65%">0.65</div></div>
-        <div class="row"><span class="k">Hand-tuned: overall score</span><div class="bar g" style="width:41%">0.41</div></div>
+        <h3>The <span class="tb">AI</span> vs a <span class="tg">hand-tuned detector</span>, on 15 videos the AI had never seen</h3>
+        <div class="grp"><p class="gt">Embers found</p>
+          <div class="row"><span class="k cb">AI</span><div class="bar a" style="width:82%">82%</div></div>
+          <div class="row"><span class="k cg">Hand-tuned</span><div class="bar g" style="width:35%">35%</div></div></div>
+        <div class="grp"><p class="gt">Overall score (F1)</p>
+          <div class="row"><span class="k cb">AI</span><div class="bar a" style="width:65%">0.65</div></div>
+          <div class="row"><span class="k cg">Hand-tuned</span><div class="bar g" style="width:41%">0.41</div></div></div>
       </div>
     </div>
     <p class="takeaway">F1 balances two things: how many of its detections are real, and how many real embers it finds. 1 is perfect. The AI’s lead held on 12 of the 15 test videos.</p>
@@ -221,7 +228,7 @@ footer b { color: #fff; }
 
     <div style="margin-top:44px">
       <h3>When embers come</h3>
-      <p class="body">The line is a typical test; the shaded band covers the middle half of tests. The rate builds over the first <b>10–15 seconds</b>, then keeps going for tens of seconds. Orange and blue are the two camera set-ups.</p>
+      <p class="body">The line is a typical test; the shaded band covers the middle half of tests. The rate builds over the first <b>10–15 seconds</b>, then keeps going for tens of seconds. <span class="to">Orange</span> and <span class="tb">blue</span> are the two camera set-ups.</p>
       <figure style="margin-top:14px"><img src="img/rate.png" alt="Embers per second against time since the start of activity, typical test and middle half of tests, for two camera set-ups" loading="lazy"></figure>
     </div>
 
@@ -231,9 +238,9 @@ footer b { color: #fff; }
         <h3>Where embers start</h3>
         <p class="body">Darker orange = more embers start there. They come from the points where the branch touches the wires, and along the burning branch, almost nowhere else.</p>
         <h3 style="margin-top:22px">Which way they go</h3>
-        <div class="row"><span class="k">Sideways</span><div class="bar a" style="width:56%">56%</div></div>
-        <div class="row"><span class="k">Downward</span><div class="bar a" style="width:27%">27%</div></div>
-        <div class="row"><span class="k">Upward</span><div class="bar a" style="width:16%">16%</div></div>
+        <div class="row"><span class="k cb">Sideways</span><div class="bar a" style="width:56%">56%</div></div>
+        <div class="row"><span class="k cb">Downward</span><div class="bar a" style="width:27%">27%</div></div>
+        <div class="row"><span class="k cb">Upward</span><div class="bar a" style="width:16%">16%</div></div>
       </div>
     </div>
   </div>
@@ -245,17 +252,20 @@ footer b { color: #fff; }
     <h2>Faster faults shed embers faster</h2>
     <div class="cmp">
       <div>
-        <h3>A branch across two wires vs one touching a wire</h3>
-        <div class="row"><span class="k">Touching: how long it lasts</span><div class="bar a" style="width:100%">57 s</div></div>
-        <div class="row"><span class="k">Across: how long it lasts</span><div class="bar b" style="width:28%">16 s</div></div>
-        <div class="row"><span class="k">Touching: embers per second</span><div class="bar a" style="width:45%">25.7</div></div>
-        <div class="row"><span class="k">Across: embers per second</span><div class="bar b" style="width:100%">56.5</div></div>
+        <h3>A branch <span class="tb">touching one wire</span> vs a branch <span class="to">across two wires</span></h3>
+        <div class="grp"><p class="gt">How long the fault lasts</p>
+          <div class="row"><span class="k cb">Touching</span><div class="bar a" style="width:100%">57 s</div></div>
+          <div class="row"><span class="k co">Across</span><div class="bar b" style="width:28%">16 s</div></div></div>
+        <div class="grp"><p class="gt">Embers per second</p>
+          <div class="row"><span class="k cb">Touching</span><div class="bar a" style="width:45%">25.7</div></div>
+          <div class="row"><span class="k co">Across</span><div class="bar b" style="width:100%">56.5</div></div></div>
       </div>
-      <p class="takeaway">A branch across two wires burns out in about a quarter of the time but sheds embers about <b>twice as fast</b>. Of all the test conditions, the starting current was most closely linked to how fast embers came out.</p>
+      <p class="takeaway">A branch <span class="to">across two wires</span> burns out in about a quarter of the time but sheds embers about <b>twice as fast</b>. Of all the test conditions, the starting current was most closely linked to how fast embers came out.</p>
       <div>
-        <h3>Tests that started a fire vs tests that didn’t</h3>
-        <div class="row"><span class="k">Fire (86 tests)</span><div class="bar b" style="width:100%">1,267 embers</div></div>
-        <div class="row"><span class="k">No fire (7 tests)</span><div class="bar g" style="width:35%">446</div></div>
+        <h3>Tests that <span class="to">started a fire</span> (86) vs tests that <span class="tg">didn’t</span> (7)</h3>
+        <div class="grp"><p class="gt">Embers per test</p>
+          <div class="row"><span class="k co">Fire</span><div class="bar b" style="width:100%">1,267</div></div>
+          <div class="row"><span class="k cg">No fire</span><div class="bar g" style="width:35%">446</div></div></div>
       </div>
     </div>
 
