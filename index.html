@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ember Tracking AI | Huy Vu, VU Capstone</title>
-<meta name="description" content="An AI that finds and tracks every ember thrown off by a burning branch on a live powerline. Victoria University engineering capstone by Huy Vu.">
+<meta name="description" content="Embers from powerline faults can start deadly bushfires. An AI that finds, tracks and measures them. Victoria University engineering capstone by Huy Vu.">
 <meta property="og:title" content="Embers from powerline faults can start deadly bushfires. So I trained an AI to catch them.">
-<meta property="og:description" content="An AI that finds, tracks and counts every ember from a powerline fault. VU engineering capstone by Huy Vu.">
+<meta property="og:description" content="The full story, both videos and the findings. VU engineering capstone by Huy Vu.">
 <meta property="og:image" content="img/step_poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,122 +16,130 @@
   --navy: #0A2240; --navy2: #13305A; --blue: #0870AE; --vublue: #0878B8; --sky: #7CC8F2;
   --paper: #F5F8FB; --paper2: #E7EFF6; --line: #CDDBE7; --ink: #0A2240; --soft: #3F5166; --mut: #5E7084;
   --ember: #E8692E; --ember-d: #C2501B; --green: #5AFF6E; --cyan: #00D2FF;
-  --wrap: 1120px; color-scheme: light;
+  --wrap: 1080px; color-scheme: light;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; color: var(--ink); background: var(--paper); line-height: 1.55; -webkit-font-smoothing: antialiased; }
-img, video { display: block; max-width: 100%; }
+img, video { display: block; max-width: 100%; height: auto; }
 a { color: var(--blue); }
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
 b, strong { font-weight: 700; }
 
 /* top bar */
 .top { background: #fff; border-bottom: 1px solid var(--line); }
-.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; }
-.top img { height: 44px; width: auto; }
-.top nav { display: flex; gap: 22px; font-size: 15px; font-weight: 600; }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 12px; padding-bottom: 12px; }
+.top img { height: 42px; width: auto; }
+.top nav { display: flex; gap: 20px; font-size: 15px; font-weight: 600; }
 .top nav a { color: var(--soft); text-decoration: none; }
 .top nav a:hover { color: var(--blue); }
+.top nav a.v { color: var(--ember-d); }
 
 /* hero */
-.hero { background: var(--navy); color: #fff; padding: 64px 0 72px; }
+.hero { background: var(--navy); color: #fff; padding: 52px 0 64px; }
 .kicker { display: inline-block; font-size: 13px; font-weight: 800; letter-spacing: 2px; color: var(--navy); background: var(--ember); padding: 6px 14px; border-radius: 99px; }
-h1 { font-size: clamp(34px, 5.6vw, 62px); line-height: 1.02; font-weight: 800; letter-spacing: -1.5px; margin: 22px 0 18px; }
+h1 { font-size: clamp(32px, 5.2vw, 56px); line-height: 1.05; font-weight: 800; letter-spacing: -1.2px; margin: 20px 0 16px; }
 h1 .hl { color: var(--ember); display: block; }
-.nw { white-space: nowrap; }
-.sub { font-size: clamp(18px, 2.2vw, 22px); color: #DCE6F0; max-width: 780px; }
+.sub { font-size: clamp(17px, 2vw, 20px); color: #DCE6F0; max-width: 760px; }
 .sub b { color: #fff; }
-.ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-.btn { display: inline-block; padding: 13px 22px; border-radius: 10px; font-weight: 700; font-size: 16px; text-decoration: none; }
-.btn.primary { background: var(--ember); color: var(--navy); }
-.btn.ghost { border: 2px solid #3B5A85; color: #fff; }
-.btn:hover { filter: brightness(1.08); }
-.player { margin-top: 44px; border-radius: 14px; overflow: hidden; background: #000; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
-.player video { width: 100%; height: auto; }
-.legend { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 14px; font-size: 15px; color: #C5D3E0; }
-.dot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; margin-right: 7px; vertical-align: 0; }
+.player { border-radius: 14px; overflow: hidden; background: #000; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+.vlabel { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; margin: 40px 0 12px; }
+.vlabel h2 { font-size: 22px; color: #fff; margin: 0; letter-spacing: -0.3px; }
+.vlabel span { font-size: 15px; color: #AFC0D2; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 12px; font-size: 15px; color: #C5D3E0; }
+.dot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; margin-right: 7px; }
 
 /* sections */
-section.s { padding: 72px 0; }
+section.s { padding: 64px 0; }
 section.alt { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .eyebrow { font-size: 13px; font-weight: 800; letter-spacing: 2px; color: var(--blue); margin-bottom: 10px; }
-h2 { font-size: clamp(28px, 4vw, 42px); line-height: 1.1; font-weight: 800; letter-spacing: -0.8px; margin-bottom: 18px; }
-.lead { font-size: 19px; color: var(--soft); max-width: 760px; }
+h2 { font-size: clamp(26px, 3.6vw, 38px); line-height: 1.12; font-weight: 800; letter-spacing: -0.7px; margin-bottom: 14px; }
+h3 { font-size: 19px; line-height: 1.3; margin-bottom: 6px; }
+.lead { font-size: 18px; color: var(--soft); max-width: 760px; }
+p.body { color: var(--soft); font-size: 16.5px; }
+figure { margin-top: 26px; }
+figure img { border-radius: 12px; border: 1px solid var(--line); background: #fff; }
+figcaption { font-size: 14.5px; color: var(--mut); margin-top: 10px; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
+.takeaway { margin-top: 18px; background: var(--paper2); border-left: 4px solid var(--vublue); border-radius: 0 10px 10px 0; padding: 14px 18px; font-size: 16.5px; color: var(--ink); }
+section.alt .takeaway { background: var(--paper); }
 
-/* problem */
-.bars { margin-top: 34px; display: grid; gap: 16px; }
-.bar { display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: center; }
-.bar .v { font-size: 34px; font-weight: 800; text-align: right; line-height: 1; }
-.track { position: relative; height: 44px; }
-.fill { position: absolute; inset: 0 auto 0 0; border-radius: 6px; }
-.track .lab { position: absolute; top: 50%; transform: translateY(-50%); font-size: 15px; font-weight: 600; }
-.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 34px; }
-.fact { background: var(--navy); color: #DCE6F0; border-radius: 12px; padding: 22px; font-size: 16px; }
-.fact .v { display: block; font-size: 38px; font-weight: 800; color: var(--sky); line-height: 1.05; margin-bottom: 6px; }
+/* comparison bars */
+.cmp { display: grid; gap: 22px; margin-top: 28px; }
+.cmp h3 { margin-bottom: 10px; }
+.row { display: grid; grid-template-columns: 190px 1fr; gap: 14px; align-items: center; margin-bottom: 8px; }
+.row .k { font-size: 15px; color: var(--soft); text-align: right; }
+.bar { height: 34px; border-radius: 6px; display: flex; align-items: center; padding: 0 12px; font-weight: 800; font-size: 15px; color: #fff; white-space: nowrap; min-width: 64px; }
+.bar.a { background: var(--vublue); }
+.bar.b { background: var(--ember); color: var(--navy); }
+.bar.g { background: #9AAFC3; }
 
-/* steps */
-.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 34px; }
-.step { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 24px; }
-.step svg { width: 64px; height: 64px; margin-bottom: 14px; }
-.step .n { font-size: 13px; font-weight: 800; letter-spacing: 1.5px; color: var(--blue); }
-.step h3 { font-size: 20px; line-height: 1.25; margin: 4px 0 8px; }
-.step p { color: var(--soft); font-size: 16px; }
-
-/* findings */
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 34px; }
-.card { background: #fff; border: 1px solid var(--line); border-top: 5px solid var(--vublue); border-radius: 14px; padding: 24px; }
-.card .v { font-size: 46px; font-weight: 800; line-height: 1; color: var(--blue); letter-spacing: -1px; }
-.card h3 { font-size: 18px; margin: 12px 0 6px; line-height: 1.3; }
-.card p { color: var(--soft); font-size: 15.5px; }
-.card.hot { background: var(--navy); border: none; border-top: 5px solid var(--ember); }
-.card.hot .v { color: var(--ember); }
-.card.hot h3 { color: #fff; }
-.card.hot p { color: #DCE6F0; }
+/* stats */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 26px; }
+.stat { background: #fff; border: 1px solid var(--line); border-top: 5px solid var(--vublue); border-radius: 14px; padding: 22px; }
+section.alt .stat { background: var(--paper); }
+.stat .v { font-size: 40px; font-weight: 800; line-height: 1; color: var(--blue); letter-spacing: -1px; }
+.stat h3 { margin: 10px 0 4px; font-size: 17px; }
+.stat p { color: var(--soft); font-size: 15px; }
+.stat.hot, section.alt .stat.hot { background: var(--navy); border: none; border-top: 5px solid var(--ember); }
+.stat.hot .v { color: var(--ember); }
+.stat.hot h3 { color: #fff; }
+.stat.hot p { color: #DCE6F0; }
 
 /* surprise */
-.surprise { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: center; }
-.surprise .chart { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
-.surprise .big { font-size: clamp(36px, 5vw, 56px); color: var(--ink); font-weight: 800; line-height: 1.02; letter-spacing: -1px; margin-bottom: 18px; }
+.big { font-size: clamp(34px, 4.6vw, 52px); font-weight: 800; line-height: 1.02; letter-spacing: -1px; margin-bottom: 16px; color: var(--ink); }
 .big span { color: var(--ember-d); display: block; }
-.surprise p { color: var(--soft); font-size: 17.5px; margin-bottom: 12px; }
 .blue { color: var(--blue); font-weight: 700; }
 .orange { color: var(--ember-d); font-weight: 700; }
 
-/* full video */
-.fullvid .player { margin-top: 30px; box-shadow: 0 12px 40px rgba(10,34,64,0.18); }
-.fullvid .legend { color: var(--soft); }
-
-/* takeaway */
-.take { background: linear-gradient(110deg, var(--navy), var(--navy2)); color: #fff; border-radius: 18px; padding: 44px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 36px; align-items: center; }
-.take .h { font-size: clamp(28px, 3.6vw, 40px); font-weight: 800; line-height: 1.1; }
+/* protection */
+.take { background: linear-gradient(110deg, var(--navy), var(--navy2)); color: #fff; border-radius: 18px; padding: 40px; }
+.take .h { font-size: clamp(26px, 3.4vw, 38px); font-weight: 800; line-height: 1.12; margin-bottom: 18px; }
 .take .h span { color: var(--sky); }
-.take p { color: #DCE6F0; font-size: 17px; border-left: 3px solid var(--vublue); padding-left: 22px; }
-.take p b { color: #fff; }
+.take ul { list-style: none; display: grid; gap: 12px; }
+.take li { color: #DCE6F0; font-size: 17px; padding-left: 26px; position: relative; }
+.take li::before { content: ""; position: absolute; left: 0; top: 9px; width: 12px; height: 12px; border-radius: 50%; background: var(--ember); }
+.take li b { color: #fff; }
 
-/* about */
-.about { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-.about h3 { font-size: 20px; margin-bottom: 10px; }
+/* limits + faq */
+.limits { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 24px; }
+.limit { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+.limit p { color: var(--soft); font-size: 15px; }
+details { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin-top: 12px; }
+details summary { cursor: pointer; font-weight: 700; font-size: 17px; list-style: none; position: relative; padding-right: 28px; }
+details summary::-webkit-details-marker { display: none; }
+details summary::after { content: "+"; position: absolute; right: 0; top: -2px; font-size: 24px; color: var(--blue); font-weight: 600; }
+details[open] summary::after { content: "−"; }
+details p { color: var(--soft); margin-top: 10px; font-size: 16px; }
+
+/* vote */
+.vote { background: var(--ember); color: var(--navy); border-radius: 20px; padding: 44px; text-align: center; }
+.vote .h { font-size: clamp(30px, 4.4vw, 48px); font-weight: 800; line-height: 1.05; letter-spacing: -1px; }
+.vote p { font-size: 18px; max-width: 640px; margin: 14px auto 0; color: #2A1406; }
+.vote .how { background: #fff; border-radius: 14px; padding: 20px 22px; max-width: 620px; margin: 24px auto 0; text-align: left; color: var(--ink); }
+.vote .how b { color: var(--ink); }
+.vote .how ol { padding-left: 22px; display: grid; gap: 6px; font-size: 16.5px; }
+.btn { display: inline-block; padding: 14px 24px; border-radius: 10px; font-weight: 800; font-size: 17px; text-decoration: none; }
+.btn.dark { background: var(--navy); color: #fff; margin-top: 22px; }
+.sticky { position: fixed; right: 18px; bottom: 18px; z-index: 50; background: var(--ember); color: var(--navy); font-weight: 800; font-size: 16px; padding: 13px 20px; border-radius: 99px; text-decoration: none; box-shadow: 0 8px 24px rgba(10,34,64,0.35); }
+.sticky:hover { filter: brightness(1.05); }
+
+/* about + footer */
+.about { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
 .about p, .about li { color: var(--soft); font-size: 16px; }
 .about ul { padding-left: 20px; display: grid; gap: 6px; }
-
-footer { background: var(--navy); color: #AFC0D2; padding: 36px 0; font-size: 14px; }
+footer { background: var(--navy); color: #AFC0D2; padding: 34px 0 90px; font-size: 14px; }
 footer .wrap { display: grid; gap: 10px; }
 footer a { color: var(--sky); }
 footer b { color: #fff; }
 
 @media (max-width: 820px) {
   .top nav { display: none; }
-  .surprise, .take, .about { grid-template-columns: 1fr; }
-  .take { padding: 30px 24px; }
-  .bar { grid-template-columns: 82px 1fr; }
-  .bar .v { font-size: 24px; }
-  .track .lab { font-size: 13px; }
-  .hero { padding: 44px 0 52px; }
-  section.s { padding: 52px 0; }
-}
-@media (max-width: 520px) {
-  .track .lab.out { left: auto !important; right: 0; text-align: right; max-width: 70%; }
+  .two, .about { grid-template-columns: 1fr; }
+  .take, .vote { padding: 28px 22px; }
+  .row { grid-template-columns: 1fr; gap: 4px; }
+  .row .k { text-align: left; }
+  section.s { padding: 48px 0; }
 }
 </style>
 </head>
@@ -141,10 +149,10 @@ footer b { color: #fff; }
   <div class="wrap">
     <img src="img/vu_logo.png" alt="Victoria University, Melbourne Australia">
     <nav aria-label="Sections">
-      <a href="#problem">The problem</a>
-      <a href="#how">How it works</a>
+      <a href="#ai">Inside the AI</a>
       <a href="#findings">Findings</a>
-      <a href="#full">Full test</a>
+      <a href="#faq">FAQ</a>
+      <a href="#vote" class="v">Vote</a>
     </nav>
   </div>
 </header>
@@ -153,98 +161,113 @@ footer b { color: #fff; }
   <div class="wrap">
     <span class="kicker">BUSHFIRE SAFETY × AI</span>
     <h1>Embers from powerline faults can start deadly bushfires.<span class="hl">So I trained an AI to catch them.</span></h1>
-    <p class="sub">On Black Saturday 2009, a powerline started the Kilmore East fire: 119 lives, $494 million. My AI finds embers too small and fast for the eye, follows each one, and measures its speed, path and lifespan.</p>
-    <div class="ctas">
-      <a class="btn primary" href="#watch">Watch the AI at work</a>
-      <a class="btn ghost" href="#findings">See what it found</a>
-    </div>
+    <p class="sub">You’ve seen the poster. Here’s the full story: both videos, what the AI found, and what it means for keeping powerlines from starting fires. <b>If it’s worth your time, there’s a People’s Choice vote at the end.</b></p>
+
+    <div class="vlabel"><h2>1 · Watch it step by step</h2><span>1 min 30 s · partly slowed down</span></div>
     <div class="player" id="watch">
       <video src="videos/step_by_step.mp4" poster="img/step_poster.jpg" controls muted playsinline preload="metadata" aria-label="Step-by-step video: original footage, the AI's view, each ember outlined, then each ember tracked"></video>
     </div>
     <div class="legend">
       <span><span class="dot" style="background:var(--green)"></span>Green outline = an ember the AI found on its own</span>
       <span><span class="dot" style="background:var(--cyan)"></span>Blue = the path it has travelled</span>
-      <span>1 min 30 s · step by step, partly slowed down</span>
     </div>
-  </div>
-</section>
 
-<section class="s" id="problem">
-  <div class="wrap">
-    <p class="eyebrow">THE PROBLEM</p>
-    <h2>The protection can’t see it</h2>
-    <p class="lead">When a branch touches a live powerline, only a tiny current flows at first: far too little to trip the protection. So the branch keeps burning, and the whole time it sheds embers that can start a fire on the ground.</p>
-    <div class="bars" role="img" aria-label="0.1 amps drawn by the branch compared with the 5 to 10 amps needed to trip the protection">
-      <div class="bar"><span class="v">0.1 A</span><div class="track"><div class="fill" style="width:2%; background:var(--ember)"></div><span class="lab out" style="left:calc(2% + 12px)">what a branch touching a wire draws at first</span></div></div>
-      <div class="bar"><span class="v">5–10 A</span><div class="track"><div class="fill" style="width:100%; background:var(--vublue)"></div><span class="lab" style="left:14px; color:#fff">what it takes to trip the protection on rural lines</span></div></div>
-    </div>
-    <div class="facts">
-      <div class="fact"><span class="v">~46 s</span>how long a typical test fault kept burning and shedding embers</div>
-      <div class="fact"><span class="v">Yes / No</span>all the earlier tests recorded about fire. Nobody had counted the embers.</div>
-    </div>
-  </div>
-</section>
-
-<section class="s alt" id="how">
-  <div class="wrap">
-    <p class="eyebrow">HOW IT WORKS</p>
-    <h2>Teaching a computer to see embers</h2>
-    <p class="lead">The videos come from a Victorian Government test program that staged over a thousand of these faults on a 22 kV test rig. I analysed 100 tests in depth, 93 of them in the final results, covering 11 tree species.</p>
-    <div class="steps">
-      <div class="step">
-        <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="10" y="16" width="80" height="62" rx="8" fill="none" stroke="#0878B8" stroke-width="6"/><circle cx="34" cy="40" r="6" fill="#E8692E"/><circle cx="62" cy="34" r="5" fill="#E8692E"/><circle cx="54" cy="60" r="6" fill="#E8692E"/><circle cx="34" cy="40" r="12" fill="none" stroke="#0A2240" stroke-width="3"/><circle cx="54" cy="60" r="12" fill="none" stroke="#0A2240" stroke-width="3"/><rect x="38" y="84" width="24" height="6" rx="3" fill="#0878B8"/></svg>
-        <p class="n">STEP 1</p><h3>I marked 3,755 embers by hand</h3><p>In 445 video frames, about 13 hours of work, to show the computer what an ember looks like.</p>
-      </div>
-      <div class="step">
-        <svg viewBox="0 0 100 100" aria-hidden="true"><g stroke="#0878B8" stroke-width="3"><line x1="18" y1="26" x2="50" y2="18"/><line x1="18" y1="26" x2="50" y2="50"/><line x1="18" y1="50" x2="50" y2="18"/><line x1="18" y1="50" x2="50" y2="82"/><line x1="18" y1="74" x2="50" y2="50"/><line x1="18" y1="74" x2="50" y2="82"/><line x1="50" y1="18" x2="82" y2="50"/><line x1="50" y1="50" x2="82" y2="50"/><line x1="50" y1="82" x2="82" y2="50"/></g><g fill="#0A2240"><circle cx="18" cy="26" r="7"/><circle cx="18" cy="50" r="7"/><circle cx="18" cy="74" r="7"/><circle cx="50" cy="18" r="7"/><circle cx="50" cy="50" r="7"/><circle cx="50" cy="82" r="7"/></g><circle cx="82" cy="50" r="9" fill="#E8692E"/></svg>
-        <p class="n">STEP 2</p><h3>An AI learned to spot them</h3><p>A U-Net neural network checks every pixel. Its trick: it also sees what got brighter in the half-second before and after, so <b>moving</b> embers stand out from the steady flame.</p>
-      </div>
-      <div class="step">
-        <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M12 80 C 30 70, 40 40, 60 34 S 84 22, 90 14" fill="none" stroke="#00B4E0" stroke-width="5" stroke-dasharray="2 8" stroke-linecap="round"/><circle cx="12" cy="80" r="6" fill="#E8692E" opacity="0.45"/><circle cx="40" cy="52" r="6" fill="#E8692E" opacity="0.7"/><circle cx="66" cy="31" r="6" fill="#E8692E" opacity="0.85"/><circle cx="88" cy="16" r="8" fill="#E8692E"/><circle cx="88" cy="16" r="13" fill="none" stroke="#0A2240" stroke-width="3"/></svg>
-        <p class="n">STEP 3</p><h3>It follows each ember</h3><p>Frame by frame, measuring how fast each ember moves, which way it goes, where it starts and how long it lasts.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="s" id="findings">
-  <div class="wrap">
-    <p class="eyebrow">THE FINDINGS</p>
-    <h2>What 148,530 tracked embers revealed</h2>
-    <div class="cards">
-      <div class="card"><span class="v">8 in 10</span><h3>embers found by the AI</h3><p>On test videos it had never seen. A carefully hand-tuned detector found about 1 in 3.</p></div>
-      <div class="card"><span class="v">~1,200</span><h3>embers from one branch</h3><p>In a typical test, arriving in bursts: more than 100 in its busiest second.</p></div>
-      <div class="card"><span class="v">0.27 s</span><h3>a typical ember’s whole life</h3><p>Most are small and burn out within 30–40 cm. It takes the right one to land.</p></div>
-      <div class="card hot"><span class="v">OFF ≠ safe</span><h3>embers keep falling after the power is cut</h3><p>The branch is still burning, so protection that acts late can’t take them back.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="s alt">
-  <div class="wrap surprise">
-    <div class="chart"><img src="img/species_risk.png" alt="Fire risk against embers shed per second for nine tree species. Willow: most embers and highest risk. Desert Ash: fewest embers but second-highest risk. Golden Wattle: lots of embers but low risk." loading="lazy"></div>
-    <div>
-      <p class="eyebrow" style="color:var(--ember-d)">THE SURPRISE</p>
-      <p class="big">More embers<span>≠ more danger</span></p>
-      <p>Each dot is a tree species. <span class="blue">Willow</span> fits the obvious rule: the most embers and the highest fire risk. <b>But the rule doesn’t hold.</b></p>
-      <p><span class="orange">Desert Ash</span> sheds the fewest embers, yet ranks second for fire risk, most likely because its slow faults give a few large embers time to reach the ground. <span class="orange">Golden Wattle</span> sheds plenty and is low risk.</p>
-      <p><b>It’s not how many embers. It’s which ones, and when.</b></p>
-    </div>
-  </div>
-</section>
-
-<section class="s fullvid" id="full">
-  <div class="wrap">
-    <p class="eyebrow">THE FULL TEST</p>
-    <h2>One branch, from first spark to the end, at real speed</h2>
-    <p class="lead">Test 446: a Manna Gum branch touching a live 12.7 kV wire. The AI never saw this video while it was learning. The counter in the corner shows the embers followed so far.</p>
+    <div class="vlabel" id="full"><h2>2 · The whole test, at real speed</h2><span>1 min 37 s · Test 446</span></div>
     <div class="player">
       <video src="videos/test446_full.mp4" poster="img/test446_poster.jpg" controls muted playsinline preload="none" aria-label="The full Test 446 video at real speed with each tracked ember outlined"></video>
     </div>
     <div class="legend">
-      <span><span class="dot" style="background:var(--green)"></span>Green outline = tracked ember (its own pixels in colour)</span>
-      <span><span class="dot" style="background:var(--cyan)"></span>Blue = its path</span>
-      <span>Only longer-lived embers are highlighted; the analysis counts them all.</span>
+      <span>A Manna Gum branch on a live 12.7 kV wire, from first spark to the end. The AI never saw this video while learning. Only longer-lived embers are highlighted; the analysis counts them all.</span>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="ai">
+  <div class="wrap">
+    <p class="eyebrow">INSIDE THE AI</p>
+    <h2>How it tells an ember from a flame</h2>
+    <p class="lead">Embers are a few pixels wide, last a fraction of a second, and fly past a bright flame of the same colour. A simple “find the bright spots” rule fails. So I hand-labelled <b>3,755 embers in 445 frames</b> (about 13 hours) and trained a U-Net, a neural network that labels every pixel.</p>
+    <figure>
+      <img src="img/ai_inputs.png" alt="The AI's inputs: the colour frame, what got brighter than half a second before, what got brighter than half a second after, and the hand-labelled embers" loading="lazy">
+      <figcaption>The trick: besides the colour image, the AI also sees what got brighter compared with half a second <b>before</b> and <b>after</b>. Moving embers light up; the still background and the steady flame cancel out.</figcaption>
+    </figure>
+    <div class="cmp">
+      <div>
+        <h3>Tested on 15 videos it had never seen</h3>
+        <div class="row"><span class="k">AI: embers found</span><div class="bar a" style="width:82%">82%</div></div>
+        <div class="row"><span class="k">Hand-tuned: embers found</span><div class="bar g" style="width:35%">35%</div></div>
+        <div class="row"><span class="k">AI: overall score (F1)</span><div class="bar a" style="width:65%">0.65</div></div>
+        <div class="row"><span class="k">Hand-tuned: overall score</span><div class="bar g" style="width:41%">0.41</div></div>
+      </div>
+    </div>
+    <p class="takeaway">F1 balances two things: how many of its detections are real, and how many real embers it finds. 1 is perfect. The AI’s lead held on 12 of the 15 test videos.</p>
+    <figure>
+      <img src="img/detections.jpg" alt="Three test frames: the AI's ember probability and the result, with correct, missed and false detections marked" loading="lazy">
+      <figcaption>What it gets right and wrong on unseen frames. <b style="color:#2E9B3A">Green</b> = correct, <b style="color:#C0392B">red</b> = missed, <b style="color:#C77700">orange</b> = false spot. Most misses are faint embers in front of the bright flame.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="s alt" id="findings">
+  <div class="wrap">
+    <p class="eyebrow">THE FINDINGS · 93 TESTS · 148,530 EMBERS</p>
+    <h2>What the embers actually do</h2>
+    <div class="stats">
+      <div class="stat"><span class="v">~1,200</span><h3>embers from one branch</h3><p>In a typical test, with more than 100 in its busiest second.</p></div>
+      <div class="stat"><span class="v">0.27 s</span><h3>a typical ember’s life</h3><p>Travelling 30–40 cm. Most burn out before leaving the camera’s view.</p></div>
+      <div class="stat"><span class="v">1.1–1.3 m/s</span><h3>starting speed</h3><p>They leave the branch slowly rather than being shot out.</p></div>
+      <div class="stat hot"><span class="v">OFF ≠ safe</span><h3>embers keep falling after the power is cut</h3><p>The branch is still burning.</p></div>
+    </div>
+
+    <div style="margin-top:44px">
+      <h3>When embers come</h3>
+      <p class="body">The line is a typical test; the shaded band covers the middle half of tests. The rate builds over the first <b>10–15 seconds</b>, then keeps going for tens of seconds. Orange and blue are the two camera set-ups.</p>
+      <figure style="margin-top:14px"><img src="img/rate.png" alt="Embers per second against time since the start of activity, typical test and middle half of tests, for two camera set-ups" loading="lazy"></figure>
+    </div>
+
+    <div class="two" style="margin-top:40px">
+      <figure style="margin-top:0"><img src="img/origin.jpg" alt="Heat map of where embers first appear: at the contact points and along the branch" loading="lazy"></figure>
+      <div>
+        <h3>Where embers start</h3>
+        <p class="body">Darker orange = more embers start there. They come from the points where the branch touches the wires, and along the burning branch, almost nowhere else.</p>
+        <h3 style="margin-top:22px">Which way they go</h3>
+        <div class="row"><span class="k">Sideways</span><div class="bar a" style="width:56%">56%</div></div>
+        <div class="row"><span class="k">Downward</span><div class="bar a" style="width:27%">27%</div></div>
+        <div class="row"><span class="k">Upward</span><div class="bar a" style="width:16%">16%</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s">
+  <div class="wrap">
+    <p class="eyebrow">WHAT CHANGES THE DANGER</p>
+    <h2>Faster faults shed embers faster</h2>
+    <div class="cmp">
+      <div>
+        <h3>A branch across two wires vs one touching a wire</h3>
+        <div class="row"><span class="k">Touching: how long it lasts</span><div class="bar a" style="width:100%">57 s</div></div>
+        <div class="row"><span class="k">Across: how long it lasts</span><div class="bar b" style="width:28%">16 s</div></div>
+        <div class="row"><span class="k">Touching: embers per second</span><div class="bar a" style="width:45%">25.7</div></div>
+        <div class="row"><span class="k">Across: embers per second</span><div class="bar b" style="width:100%">56.5</div></div>
+      </div>
+      <p class="takeaway">A branch across two wires burns out in about a quarter of the time but sheds embers about <b>twice as fast</b>. Of all the test conditions, the starting current was most closely linked to how fast embers came out.</p>
+      <div>
+        <h3>Tests that started a fire vs tests that didn’t</h3>
+        <div class="row"><span class="k">Fire (86 tests)</span><div class="bar b" style="width:100%">1,267 embers</div></div>
+        <div class="row"><span class="k">No fire (7 tests)</span><div class="bar g" style="width:35%">446</div></div>
+      </div>
+    </div>
+
+    <div class="two" style="margin-top:48px">
+      <div style="background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px"><img src="img/species_risk.png" alt="Fire risk against embers shed per second for nine tree species. Willow: most embers and highest risk. Desert Ash: fewest embers but second-highest risk. Golden Wattle: lots of embers but low risk." loading="lazy"></div>
+      <div>
+        <p class="eyebrow" style="color:var(--ember-d)">THE SURPRISE</p>
+        <p class="big">More embers<span>≠ more danger</span></p>
+        <p class="body">Each dot is a tree species. <span class="blue">Willow</span> fits the obvious rule: the most embers and the highest fire risk. But overall there’s almost no link.</p>
+        <p class="body" style="margin-top:10px"><span class="orange">Desert Ash</span> sheds the fewest embers yet ranks second for fire risk, most likely because its slow faults give a few large embers time to reach the ground. <span class="orange">Golden Wattle</span> sheds plenty and is low risk.</p>
+        <p class="body" style="margin-top:10px"><b>It’s not how many embers. It’s which ones, and when.</b></p>
+      </div>
     </div>
   </div>
 </section>
@@ -252,8 +275,48 @@ footer b { color: #fff; }
 <section class="s" style="padding-top:0">
   <div class="wrap">
     <div class="take">
-      <p class="h">Protection needs to be <span>fast</span>, not just sensitive.</p>
-      <p><b>Embers released = ember rate × time to trip.</b> Cut the time and you cut the embers. This work gives the first per-ember numbers to design for, and the pipeline is ready to run on the remaining 800 or so test videos.</p>
+      <p class="h">So protection needs to be <span>fast</span>, not just sensitive.</p>
+      <ul>
+        <li><b>Embers released = ember rate × time to trip.</b> Cut the time and you cut the embers.</li>
+        <li>In a typical test the ember rate is already high within <b>10–15 seconds</b>, and late tripping can’t take embers back.</li>
+        <li>For faster faults, the same delay lets out more embers, so speed matters as much as catching small currents.</li>
+        <li><b>Delivered:</b> a working AI pipeline in MATLAB, the first per-ember dataset for powerline faults, and comparisons by tree species, fault type and fire outcome.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="s alt" id="faq">
+  <div class="wrap">
+    <p class="eyebrow">HONEST LIMITS</p>
+    <h2>What the numbers can’t tell yet</h2>
+    <div class="limits">
+      <div class="limit"><h3>One camera, 2-D</h3><p>Speeds in metres are approximate; comparisons between tests use the same camera view.</p></div>
+      <div class="limit"><h3>Sparks vs embers</h3><p>Tiny contact sparks can look like embers to the AI.</p></div>
+      <div class="limit"><h3>Dense bursts</h3><p>When hundreds overlap, they merge into one spot, so counts there are too low.</p></div>
+      <div class="limit"><h3>Few non-fire tests</h3><p>Only 7 of the 93 tests didn’t start a fire, so that comparison is rough.</p></div>
+    </div>
+
+    <p class="eyebrow" style="margin-top:48px">FAQ</p>
+    <details><summary>Is this running on real powerlines?</summary><p>Not yet. It analyses recorded test videos, so it’s a measurement tool. The next step is lining up ember timing with the electrical signals, to count how many embers escape before protection trips.</p></details>
+    <details><summary>How accurate is it?</summary><p>On 15 videos it never saw while learning, it found 82% of the hand-labelled embers, with an overall score (F1) of 0.65 against 0.41 for a carefully hand-tuned detector.</p></details>
+    <details><summary>Where does the data come from?</summary><p>For the Victorian Government’s Powerline Bushfire Safety Program, Marxsen Consulting staged over a thousand of these faults on a 22 kV test rig in 2014–15 and filmed every one. I analysed 100 of them in depth.</p></details>
+    <details><summary>What would you do next?</summary><p>Retrain with the extra hard frames already labelled, run the pipeline on the rest of the dataset, separate sparks from fire-starting embers, and link ember timing to the electrical records.</p></details>
+  </div>
+</section>
+
+<section class="s" id="vote">
+  <div class="wrap">
+    <div class="vote">
+      <p class="h">Worth it? Vote for it.</p>
+      <p>This project is in the People’s Choice award at the WISE × VINES STEM Design Expo, Thursday 19 November. Votes are counted at 2:30 pm.</p>
+      <div class="how">
+        <ol>
+          <li>Find the <b>People’s Choice</b> voting at the Expo.</li>
+          <li>Vote for <b>Huy Vu’s ember-tracking AI</b>.</li>
+          <li>Come and ask me anything at the table.</li>
+        </ol>
+      </div>
     </div>
   </div>
 </section>
@@ -266,12 +329,8 @@ footer b { color: #fff; }
       <p><b>Huy Vu</b>, Bachelor of Engineering (Honours), Electrical and Electronic<br>NEF4201 Capstone · Supervisor: Assoc. Prof. Cagil Ozansoy<br>Victoria University, Melbourne · 2026</p>
     </div>
     <div>
-      <h3>Next steps</h3>
-      <ul>
-        <li>Run the pipeline on the remaining test videos</li>
-        <li>Line up ember timing with the electrical records, to count the embers released before a relay trips</li>
-        <li>Tell sparks apart from embers that can start a fire</li>
-      </ul>
+      <h3>In one line</h3>
+      <p>The first per-ember measurements for powerline vegetation faults: how many embers, how fast, which way, from where and for how long, and what that means for how quickly protection must act.</p>
     </div>
   </div>
 </section>
@@ -283,6 +342,8 @@ footer b { color: #fff; }
     <p><b>Kilmore East fire:</b> 119 deaths, <a href="https://knowledge.aidr.org.au/resources/bushfire-black-saturday-victoria-2009/">AIDR Knowledge Hub</a>; $494 million class-action settlement approved by the Supreme Court of Victoria, 2014 (<a href="https://www.lawyersweekly.com.au/news/15900-black-saturday-class-action-settlement-a-record">Lawyers Weekly</a>).</p>
   </div>
 </footer>
+
+<a class="sticky" href="#vote">Vote for this project</a>
 
 </body>
 </html>
